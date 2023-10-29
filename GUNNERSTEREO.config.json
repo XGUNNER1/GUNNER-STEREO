@@ -1,0 +1,13 @@
+{
+    "currentVersionInfo": {
+        "version": "0.0.5",
+        "hasShownChangelog": true
+    },
+    "settings": {
+        "enableToasts": true,
+        "stereoChannelOption": "7.1",
+        "otherSettings": {
+            "prioritySpeaking": false
+        }
+    }
+}
