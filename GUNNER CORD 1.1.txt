@@ -1,6 +1,6 @@
 /*Gunner Cord
- * @name Gunner StereoSound
- * @version 1.0.0
+ * @name Gunner cord
+ * @version 1.0.1
  * @authorLink 
  */
 /*@cc_on
@@ -9,15 +9,15 @@
 	// Offer to self-install for clueless users that try to run this directly.
 	var shell = WScript.CreateObject("WScript.Shell");
 	var fs = new ActiveXObject("Scripting.FileSystemObject");
-	var pathPlugins = shell.ExpandEnvironmentStrings("%APPDATA%\\BetterDiscord\\plugins");
+	var pathPlugins = shell.ExpandEnvironmentStrings("%APPDATA%\\GUNNERCORD\\plugins");
 	var pathSelf = WScript.ScriptFullName;
 	// Put the user at ease by addressing them in the first person
-	shell.Popup("It looks like you've mistakenly tried to run me directly. \n(Don't do that!)", 0, "I'm a plugin for BetterDiscord", 0x30);
+	shell.Popup("It looks like you've mistakenly tried to run me directly. \n(Don't do that!)", 0, "I'm a plugin for GUNNERCORD", 0x30);
 	if (fs.GetParentFolderName(pathSelf) === fs.GetAbsolutePathName(pathPlugins)) {
 		shell.Popup("I'm in the correct folder already.", 0, "I'm already installed", 0x40);
 	} else if (!fs.FolderExists(pathPlugins)) {
-		shell.Popup("I can't find the BetterDiscord plugins folder.\nAre you sure it's even installed?", 0, "Can't install myself", 0x10);
-	} else if (shell.Popup("Should I copy myself to BetterDiscord's plugins folder for you?", 0, "Do you need some help?", 0x34) === 6) {
+		shell.Popup("I can't find the GUNNERCORD plugins folder.\nAre you sure it's even installed?", 0, "Can't install myself", 0x10);
+	} else if (shell.Popup("Should I copy myself to GUNNERCORD plugins folder for you?", 0, "Do you need some help?", 0x34) === 6) {
 		fs.CopyFile(pathSelf, fs.BuildPath(pathPlugins, fs.GetFileName(pathSelf)), true);
 		// Show the user where to put plugins in the future
 		shell.Exec("explorer " + pathPlugins);
@@ -28,7 +28,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"main":"index.js","info":{"name":"Tworb!","authors":[{"name":" ██ ⤶ 👑 ⭕Y jaygocrazy7249 🧊 A̷n̷o̷n̷y̷m̷o̷u̷s̷#1337 ⭕Y 👑 ⤷ ██","discord_id":"147077474222604288","github_username":"nik/blood"}],"authorLink":"https://www.youtube.com/channel/UCqwyjQcgslu3kZgWABPdrag","version":"0.0.1","description":" ⭕Y Or No Y Made By jaygocrazy7249 & A̷n̷o̷n̷y̷m̷o̷u̷s̷#5696 m/bepvte/bd-addons/main/plugins/StereoSound.plugin.js"},"changelog":[{"title":"Changes","items":["Adjusted warning toast behavior"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable Toasts","note":"Allows the plugin to let you know it is working, and also warn you about voice settings","value":true}]};
+    const config = {"main":"index.js","info":{"name":"Tworb!","authors":[{"name":" ██ ⤶ 👑 ⭕Y 2waygunner 🧊 A̷n̷o̷n̷y̷m̷o̷u̷s̷#1337 ⭕Y 👑 ⤷ ██","discord_id":"147077474222604288","github_username":"nik/blood"}],"authorLink":"https://www.youtube.com/channel/UCqwyjQcgslu3kZgWABPdrag","version":"0.0.1","description":" ⭕Y Or No Y Made By 2waygunner & A̷n̷o̷n̷y̷m̷o̷u̷s̷#5696 m/bepvte/bd-addons/main/plugins/StereoSound.plugin.js"},"changelog":[{"title":"Changes","items":["Adjusted warning toast behavior"]}],"defaultConfig":[{"type":"switch","id":"enableToasts","name":"Enable Toasts","note":"Allows the plugin to let you know it is working, and also warn you about voice settings","value":true}]};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -42,7 +42,7 @@ module.exports = (() => {
                 cancelText: "Cancel",
                 onConfirm: () => { 
                     require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
+                        if (error) return require("electron").shell.openExternal("https://GUNNERCORD.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
                         await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
                     });
                 }
